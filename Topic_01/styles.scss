@@ -1,0 +1,264 @@
+// Variables
+$color-background-primary: #121214;
+$color-background-secondary: #232227;
+$color-text-base: #ccc;
+$color-text-primary: #fff;
+$color-text-secondary: #595959;
+$color-border-primary: #595959;
+$color-border-secondary: #555;
+$color-border-sidebar: #444;
+
+$font-family-base: "Times New Roman", serif;
+$font-family-icon: "Font Awesome 6 Free";
+$font-size-base: 12px;
+$font-weight-normal: normal;
+$font-weight-light: 100;
+$font-weight-medium: 500;
+$font-weight-bold: 900;
+
+$layout-container-width: 670px;
+$layout-left-column-width: 400px;
+$layout-right-column-width: 236px;
+
+body {
+  margin: 0;
+
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-text-base;
+
+  background-color: $color-background-primary;
+}
+
+.container {
+  max-width: $layout-container-width;
+  margin: 0 auto;
+  padding: 0 10px 0 20px;
+}
+
+.main-content {
+  &::after {
+    display: table;
+    clear: both;
+
+    content: "";
+  }
+}
+
+.left-column {
+  float: left;
+
+  width: $layout-left-column-width;
+  padding-right: 30px;
+}
+
+.right-column {
+  float: right;
+
+  width: $layout-right-column-width;
+}
+
+.content-block {
+  .content-title {
+    margin-top: 36px;
+
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    color: $color-text-secondary;
+  }
+
+  .content-top {
+    display: flex;
+    align-items: flex-start;
+    height: 140px;
+    margin-top: 36px;
+  }
+
+  .image-container {
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .image-container img {
+    display: block;
+    width: 130px;
+    height: 90px;
+  }
+
+  .text-container {
+    margin-left: 10px;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      color: $color-text-primary;
+    }
+    p {
+      margin: 0;
+
+      line-height: 0.85;
+      letter-spacing: -0.3px;
+      color: $color-text-secondary;
+    }
+  }
+
+  .image-caption {
+    margin-top: 34px;
+
+    color: $color-text-secondary;
+  }
+  .content-bottom {
+    margin: 0 0 0 16px;
+
+    p {
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: $color-border-primary 1px dotted;
+
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.links-block {
+  margin-top: 82px;
+  margin-left: 19px;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    color: $color-text-primary;
+  }
+
+  p {
+    margin: 0;
+
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+  }
+
+  .link-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link-column {
+    width: 50%;
+  }
+
+  ul {
+    margin: 20px 0 0 0;
+    padding: 0 0 8px 0;
+    border-bottom: $color-border-secondary 1px dotted;
+
+    list-style: none;
+
+    li {
+      margin-bottom: 8px;
+
+      a {
+        position: relative;
+
+        padding-left: 12px;
+
+        letter-spacing: -0.2px;
+        color: $color-text-secondary;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+
+          font-family: $font-family-icon;
+          font-size: $font-size-base;
+          font-weight: $font-weight-bold;
+          color: $color-text-secondary;
+
+          content: "\f0da";
+          transform: translateY(-50%);
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  position: relative;
+
+  height: 286px;
+  margin-top: 20px;
+  padding-top: 100px;
+
+  background-color: $color-background-secondary;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 72px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: #444;
+  }
+
+  .sidebar-content {
+    padding: 2px 25px 32px 35px;
+  }
+
+  .sidebar-content__title {
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    font-size: $font-size-base;
+    font-weight: $font-weight-light;
+    color: $color-text-primary;
+  }
+
+  img {
+    display: block;
+    max-width: 174px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 10px;
+  }
+
+  p {
+    margin: 0;
+
+    letter-spacing: -0.3px;
+    color: $color-text-secondary;
+  }
+
+  strong {
+    font-weight: $font-weight-light;
+    color: $color-text-primary;
+  }
+}
+
+.more-info {
+  display: inline-block;
+  margin-top: 14px;
+  padding-left: 18px;
+
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  color: $color-text-primary;
+
+  background: url("./arr_1.gif") no-repeat left center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
