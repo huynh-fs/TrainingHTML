@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic 03</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="player-profile">
+      <h2 class="player-profile__title">Player Profile</h2>
+
+      <!-- Player Info Section -->
+      <section class="player-profile__info">
+        <img
+          src="./avt.png"
+          alt="Player Avatar"
+          class="player-profile__avatar"
+        />
+        <div class="player-profile__details">
+          Họ tên: Nguyễn Xuân Nam<br />
+          Nơi sinh: Hà Nội<br />
+          Ngày sinh: 28/11/1990<br />
+          Vị trí: Teamlear<br />
+          Cao: 170cm<br />
+          Nặng: 67kg
+        </div>
+      </section>
+
+      <!-- Facts Section -->
+      <section class="player-profile__facts">
+        <h3 class="player-profile__facts-title">Facts:</h3>
+        <ul class="player-profile__fact-list">
+          <li class="player-profile__fact-item">
+            <p class="player-profile__fact-item-star">
+              Nam gia nhap The Cong nam 1999
+            </p>
+          </li>
+          <li class="player-profile__fact-item">
+            <p class="player-profile__fact-item-star">
+              Trong suot thoi trai tre gia nhap The Cong Nam da ghi duoc
+            </p>
+            <p class="player-profile__fact-item-text">
+              160 ban thang trong vong 7 nam
+            </p>
+          </li>
+          <li class="player-profile__fact-item">
+            <p class="player-profile__fact-item-star">
+              Nam choi tran dau tien cho U21 Viet Nam vao do tuoi 16
+            </p>
+          </li>
+          <li class="player-profile__fact-item">
+            <p class="player-profile__fact-item-star">
+              Nam da dat cup U21 cho Viet Nam vao nam 2007
+            </p>
+          </li>
+          <li class="player-profile__fact-item">
+            <p class="player-profile__fact-item-star">
+              Nam da dat cup cau thu xuat sac nhat trong nam
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Posts Section -->
+      <section class="player-profile__posts">
+        <article class="player-profile__post">
+          <p class="player-profile__post-content">
+            Nam choi cho cau lac bo The Cong<br />
+            The Cong dat chuc vo dich
+          </p>
+          <p class="player-profile__post-meta">
+            Post by <a href="#">The Cong's Fan</a> 20/12/2007
+          </p>
+        </article>
+        <article class="player-profile__post">
+          <p class="player-profile__post-content">
+            Nam la cau thu choi rat hay o The Cong<br />
+            va anh da chuyen toi Hoa Phat &lt;>:)
+          </p>
+          <p class="player-profile__post-meta">
+            Post by <a href="#">Hoa Phat's Fan</a> 20/12/2007
+          </p>
+        </article>
+      </section>
+
+      <!-- Comment Form Section -->
+      <section class="player-profile__comment-form">
+        <h3 class="player-profile__form-title">Your comment</h3>
+        <form action="#" class="player-profile__form">
+          <div class="player-profile__form-group">
+            <label for="name" class="player-profile__label">Your name</label>
+            <input type="text" id="name" class="player-profile__input" />
+          </div>
+          <div class="player-profile__form-group">
+            <label for="email" class="player-profile__label"
+              >Your email (will not public)</label
+            >
+            <input type="email" id="email" class="player-profile__input" />
+          </div>
+          <div
+            class="player-profile__form-group player-profile__form-group--textarea"
+          >
+            <label for="comment" class="player-profile__label">Comment</label>
+            <textarea
+              id="comment"
+              class="player-profile__textarea"
+              placeholder="Your comment here <textarea>"
+            ></textarea>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

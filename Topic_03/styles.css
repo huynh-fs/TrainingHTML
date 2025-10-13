@@ -1,0 +1,144 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  color: #000;
+  background-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.player-profile {
+  width: 500px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+}
+.player-profile__title {
+  padding: 2px 2px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(to bottom, #fff 30%, #ccc 50%, #fff 100%);
+}
+.player-profile__info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+.player-profile__avatar {
+  width: 82px;
+  height: auto;
+  margin-right: 12px;
+}
+.player-profile__details {
+  flex-grow: 1;
+  height: 100px;
+  padding: 2px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  line-height: 1.1;
+  background-color: #fff;
+}
+.player-profile__facts {
+  margin-bottom: 60px;
+}
+.player-profile__facts-title {
+  margin-bottom: 20px;
+  padding-left: 2px;
+  font-weight: 600;
+}
+.player-profile__fact-list {
+  margin-top: 8px;
+  margin-left: 38px;
+  list-style: none;
+}
+.player-profile__fact-item {
+  margin-bottom: 5px;
+}
+.player-profile__fact-item-star {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.2;
+}
+.player-profile__fact-item-star::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: url("./star.jpg") no-repeat left center;
+  content: "";
+  background-size: contain;
+}
+.player-profile__fact-item-text {
+  margin-left: 0;
+}
+.player-profile__posts {
+  margin-bottom: 20px;
+}
+.player-profile__post {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 5px 20px;
+  background-color: #f2f2f2;
+  line-height: 1.1;
+}
+.player-profile__post::after {
+  position: absolute;
+  bottom: -14px;
+  left: 12px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #f2f2f2;
+}
+.player-profile__post-meta {
+  position: absolute;
+  bottom: -14px;
+  left: 55px;
+  font-size: 13px;
+}
+.player-profile__post-meta a {
+  text-decoration: none;
+}
+.player-profile__comment-form {
+  padding: 18px 5px 5px 5px;
+}
+.player-profile__form-title {
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+.player-profile__form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.player-profile__label {
+  width: 105px;
+  flex-shrink: 0;
+  text-align: left;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.player-profile__input {
+  width: 148px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+}
+.player-profile__textarea {
+  flex-grow: 1;
+  height: 86px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+  resize: vertical;
+}/*# sourceMappingURL=styles.css.map */
