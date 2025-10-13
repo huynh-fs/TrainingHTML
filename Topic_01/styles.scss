@@ -88,7 +88,7 @@ body {
   .text-container {
     margin-left: 10px;
 
-    h3 {
+    h2 {
       margin-top: 0;
       margin-bottom: 8px;
 
@@ -143,24 +143,18 @@ body {
     color: $color-text-secondary;
   }
 
-  .link-columns {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .link-column {
-    width: 50%;
-  }
-
   ul {
     margin: 20px 0 0 0;
     padding: 0 0 8px 0;
     border-bottom: $color-border-secondary 1px dotted;
 
     list-style: none;
+    column-count: 2;
+    column-gap: 0px;
 
     li {
       margin-bottom: 8px;
+      break-inside: avoid-column;
 
       a {
         position: relative;

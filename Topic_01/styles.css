@@ -53,7 +53,7 @@ body {
 .content-block .text-container {
   margin-left: 10px;
 }
-.content-block .text-container h3 {
+.content-block .text-container h2 {
   margin-top: 0;
   margin-bottom: 8px;
   font-size: 12px;
@@ -96,21 +96,20 @@ body {
   font-size: 12px;
   color: #595959;
 }
-.links-block .link-columns {
-  display: flex;
-  justify-content: space-between;
-}
-.links-block .link-column {
-  width: 50%;
-}
 .links-block ul {
   margin: 20px 0 0 0;
   padding: 0 0 8px 0;
   border-bottom: #555 1px dotted;
   list-style: none;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 0px;
+       column-gap: 0px;
 }
 .links-block ul li {
   margin-bottom: 8px;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid-column;
 }
 .links-block ul li a {
   position: relative;
