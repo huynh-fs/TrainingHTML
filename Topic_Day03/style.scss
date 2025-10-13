@@ -1,0 +1,424 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("./fonts/satoshi/Satoshi-Regular.woff2") format("woff2"),
+    url("./fonts/satoshi/Satoshi-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./fonts/satoshi/Satoshi-Medium.woff2") format("woff2"),
+    url("./fonts/satoshi/Satoshi-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./fonts/satoshi/Satoshi-Bold.woff2") format("woff2"),
+    url("./fonts/satoshi/Satoshi-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("./fonts/integral-fc/Fontspring-DEMO-integralcf-regular.otf")
+      format("opentype"),
+    url("./fonts/integral-fc/Fontspring-DEMO-integralcf-regularoblique.otf")
+      format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("./fonts/integral-fc/Fontspring-DEMO-integralcf-bold.otf")
+      format("opentype"),
+    url("./fonts/integral-fc/Fontspring-DEMO-integralcf-boldoblique.otf")
+      format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Variables */
+:root {
+  --font-family-primary: "Satoshi", sans-serif;
+  --font-family-secondary: "Integral CF", sans-serif;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-100: #f0f0f0;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #dddddd;
+  --color-gray-400: #444444;
+  --color-gray-600: #666666;
+
+  --color-star: #ffc633;
+  --color-verified: #01ab31;
+  --color-discount-bg: #ff33331a;
+  --color-discount-text: #ff3333;
+
+  --border-radius-sm: 12px;
+  --border-radius-md: 20px;
+  --border-radius-pill: 62px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Component: Tabs */
+.tabs {
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--color-gray-200);
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__item {
+    padding: 16px 0;
+    cursor: pointer;
+    color: var(--color-gray-600);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+    flex: 1;
+    text-align: center;
+
+    &:hover {
+      color: var(--color-black);
+    }
+
+    &--active {
+      color: var(--color-black);
+      font-weight: 500;
+      border-bottom-color: var(--color-black);
+    }
+  }
+}
+
+/* Component: Button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--border-radius-pill);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: var(--color-gray-100);
+  color: var(--color-black);
+
+  &:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  &--primary {
+    background-color: var(--color-black);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid var(--color-gray-200);
+    padding: 16px 44px;
+    font-size: 16px;
+
+    &:hover {
+      background-color: var(--color-gray-100);
+      border-color: var(--color-black);
+    }
+  }
+
+  &--icon {
+    padding: 10px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Reviews --- */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+
+    &-count {
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-gray-600);
+      margin-left: 4px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: 14px;
+  }
+}
+
+/* Review Card --- */
+.review-card {
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-md);
+  padding: 26px 29.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 6px;
+    color: var(--color-star);
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__author-name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  &__verified-badge {
+    color: var(--color-verified);
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 19.5px;
+      height: 19.5px;
+    }
+  }
+
+  &__options {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray-500);
+    font-size: 20px;
+    padding: 0;
+    line-height: 1;
+
+    &:hover {
+      color: var(--color-black);
+    }
+  }
+
+  &__body {
+    color: var(--color-gray-600);
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 14px;
+    flex-grow: 1;
+  }
+
+  &__date {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+    line-height: 22px;
+    margin-top: auto;
+  }
+}
+
+/* Recommendations --- */
+.recommendations {
+  margin-top: 64px;
+  margin-bottom: 80px; // todo: delete if footer added
+
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 52px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    font-family: var(--font-family-secondary);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Product Card --- */
+.product-card {
+  display: flex;
+  max-width: 295px;
+  flex-direction: column;
+  cursor: pointer;
+
+  &__image-wrapper {
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: 16px;
+    aspect-ratio: 1 / 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  &__stars {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__score {
+    display: flex;
+    align-items: center;
+    height: 19px;
+
+    &-total {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 700;
+
+    &--original {
+      color: rgba(0, 0, 0, 0.4);
+      text-decoration: line-through;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+
+  &__discount {
+    background-color: var(--color-discount-bg);
+    color: var(--color-discount-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-pill);
+  }
+}

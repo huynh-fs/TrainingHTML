@@ -57,13 +57,11 @@ body {
 }
 .player-profile__fact-item {
   margin-bottom: 5px;
-}
-.player-profile__fact-item-star {
   position: relative;
-  padding-left: 20px;
   line-height: 1.2;
+  text-indent: 20px;
 }
-.player-profile__fact-item-star::before {
+.player-profile__fact-item::before {
   position: absolute;
   left: 0;
   top: 0;
@@ -72,9 +70,6 @@ body {
   background: url("./star.jpg") no-repeat left center;
   content: "";
   background-size: contain;
-}
-.player-profile__fact-item-text {
-  margin-left: 0;
 }
 .player-profile__posts {
   margin-bottom: 20px;
@@ -98,9 +93,8 @@ body {
   border-top: 20px solid #f2f2f2;
 }
 .player-profile__post-meta {
-  position: absolute;
-  bottom: -14px;
-  left: 55px;
+  margin-top: -16px;
+  margin-left: 50px;
   font-size: 13px;
 }
 .player-profile__post-meta a {
