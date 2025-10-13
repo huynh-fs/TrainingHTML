@@ -1,0 +1,251 @@
+// Variables
+$color-text-dark: #000000;
+$color-text-secondary: #808080;
+$color-link: #0a6395;
+$color-border-primary: #f7a418;
+$color-border-secondary: #e6f3fb;
+$color-border-tertiary: #363333;
+$color-border-quaternary: #686767;
+$bg-blogroll-item: #faf0bf;
+$bg-horoscopes-footer: #f4f4ec;
+$bg-white: #ffffff;
+
+$font-family-main: "Times New Roman", Times, serif;
+$font-size-main: 13px;
+
+body {
+  font-family: $font-family-main;
+  font-size: $font-size-main;
+  color: $color-text-dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.blog {
+  width: 315px;
+  margin: 20px auto;
+  padding: 0 10px 20px 10px;
+  background-color: $color-border-secondary;
+}
+
+.blogroll {
+  &__title {
+    padding-top: 1px;
+    font-size: 16px;
+    color: $color-text-dark;
+    line-height: 1;
+    font-weight: lighter;
+  }
+
+  &__content {
+    border-top: 4px solid $color-border-primary;
+    background-color: $bg-white;
+
+    &-title {
+      font-weight: bold;
+      color: $color-link;
+    }
+  }
+
+  &__item {
+    display: flex;
+    padding: 8px;
+
+    &--featured {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__image-container {
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  &__image {
+    display: block;
+    width: 156px;
+    height: 80px;
+    border-right: 1px solid #cacaca;
+  }
+
+  &__description {
+    font-size: 13px;
+    line-height: 1.1;
+    padding-right: 8px;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__list .blogroll__item {
+    padding-top: 8px;
+    padding-bottom: 11px;
+    background-color: $bg-blogroll-item;
+    border-bottom: 1px solid $bg-white;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-link;
+
+    &--title {
+      font-style: italic;
+      font-weight: bold;
+    }
+  }
+}
+
+// Horoscopes Block
+
+.horoscopes {
+  &__title {
+    padding-top: 2px;
+    font-size: 16px;
+    color: $color-text-dark;
+    line-height: 1;
+    font-weight: lighter;
+  }
+
+  &__content {
+    border-top: 5px solid $color-border-primary;
+  }
+
+  &__main {
+    display: flex;
+    padding: 20px 0px 14px 8px;
+    background-color: $bg-white;
+  }
+
+  &__image {
+    display: block;
+    width: 75px;
+    height: 86px;
+    margin-right: 20px;
+    margin-left: 4px;
+    flex-shrink: 0;
+  }
+
+  &__sign {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+  }
+
+  &__date {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    line-height: 1;
+    color: $color-text-secondary;
+  }
+
+  &__description {
+    font-size: 12.5px;
+    line-height: 1.2;
+  }
+
+  &__link {
+    font-weight: bold;
+    color: $color-link;
+  }
+
+  &__footer {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+
+    background: url("./img-3.png") no-repeat left center;
+  }
+
+  &__powered-by {
+    a {
+      text-decoration: none;
+      color: $color-link;
+      font-weight: bold;
+    }
+  }
+}
+
+// Get News Block
+
+.get-news {
+  margin-top: 18px;
+
+  &__title {
+    padding-top: 2px;
+    font-size: 16px;
+    color: $color-text-dark;
+    line-height: 1;
+    font-weight: lighter;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    background-color: $bg-white;
+    border-top: 4px solid $color-border-primary;
+  }
+
+  &__text {
+    margin-right: 8px;
+    line-height: 1.2;
+    padding: 18px 10px 0px 20px;
+  }
+
+  &__link {
+    display: block;
+    margin-top: 6px;
+    text-decoration: none;
+    color: $color-link;
+  }
+
+  &__image {
+    display: block;
+    width: 140px;
+  }
+}
+
+// Competitions Block
+
+.competitions {
+  margin-top: 8px;
+  padding-top: 2px;
+  border-top: 1px solid $color-border-tertiary;
+
+  &__title {
+    padding-top: 2px;
+    font-size: 16px;
+    color: $color-text-dark;
+    line-height: 1;
+    font-weight: lighter;
+  }
+
+  &__content {
+    padding: 6px;
+    background-color: $bg-white;
+    border: 1px solid $color-border-quaternary;
+  }
+
+  &__list {
+    list-style-position: inside;
+    list-style-type: disc;
+  }
+
+  &__item {
+    margin-bottom: 1px;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-link;
+    color: $color-text-secondary;
+    line-height: 1;
+  }
+}

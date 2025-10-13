@@ -1,0 +1,193 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  color: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.blog {
+  width: 315px;
+  margin: 20px auto;
+  padding: 0 10px 20px 10px;
+  background-color: #e6f3fb;
+}
+
+.blogroll__title {
+  padding-top: 1px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  font-weight: lighter;
+}
+.blogroll__content {
+  border-top: 4px solid #f7a418;
+  background-color: #ffffff;
+}
+.blogroll__content-title {
+  font-weight: bold;
+  color: #0a6395;
+}
+.blogroll__item {
+  display: flex;
+  padding: 8px;
+}
+.blogroll__item--featured {
+  padding-bottom: 10px;
+}
+.blogroll__image-container {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.blogroll__image {
+  display: block;
+  width: 156px;
+  height: 80px;
+  border-right: 1px solid #cacaca;
+}
+.blogroll__description {
+  font-size: 13px;
+  line-height: 1.1;
+  padding-right: 8px;
+}
+.blogroll__list {
+  list-style: none;
+}
+.blogroll__list .blogroll__item {
+  padding-top: 8px;
+  padding-bottom: 11px;
+  background-color: #faf0bf;
+  border-bottom: 1px solid #ffffff;
+}
+.blogroll__link {
+  text-decoration: none;
+  color: #0a6395;
+}
+.blogroll__link--title {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.horoscopes__title {
+  padding-top: 2px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  font-weight: lighter;
+}
+.horoscopes__content {
+  border-top: 5px solid #f7a418;
+}
+.horoscopes__main {
+  display: flex;
+  padding: 20px 0px 14px 8px;
+  background-color: #ffffff;
+}
+.horoscopes__image {
+  display: block;
+  width: 75px;
+  height: 86px;
+  margin-right: 20px;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+.horoscopes__sign {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: bold;
+}
+.horoscopes__date {
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  line-height: 1;
+  color: #808080;
+}
+.horoscopes__description {
+  font-size: 12.5px;
+  line-height: 1.2;
+}
+.horoscopes__link {
+  font-weight: bold;
+  color: #0a6395;
+}
+.horoscopes__footer {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: url("./img-3.png") no-repeat left center;
+}
+.horoscopes__powered-by a {
+  text-decoration: none;
+  color: #0a6395;
+  font-weight: bold;
+}
+
+.get-news {
+  margin-top: 18px;
+}
+.get-news__title {
+  padding-top: 2px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  font-weight: lighter;
+}
+.get-news__content {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-top: 4px solid #f7a418;
+}
+.get-news__text {
+  margin-right: 8px;
+  line-height: 1.2;
+  padding: 18px 10px 0px 20px;
+}
+.get-news__link {
+  display: block;
+  margin-top: 6px;
+  text-decoration: none;
+  color: #0a6395;
+}
+.get-news__image {
+  display: block;
+  width: 140px;
+}
+
+.competitions {
+  margin-top: 8px;
+  padding-top: 2px;
+  border-top: 1px solid #363333;
+}
+.competitions__title {
+  padding-top: 2px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  font-weight: lighter;
+}
+.competitions__content {
+  padding: 6px;
+  background-color: #ffffff;
+  border: 1px solid #686767;
+}
+.competitions__list {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+.competitions__item {
+  margin-bottom: 1px;
+  list-style: none;
+}
+.competitions__link {
+  text-decoration: none;
+  color: #0a6395;
+  color: #808080;
+  line-height: 1;
+}/*# sourceMappingURL=styles.css.map */
