@@ -3,172 +3,483 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Topic Day 04</title>
+    <title>Product Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <!-- TABS -->
-      <nav class="tabs">
-        <ul class="tabs__list">
-          <li class="tabs__item" data-tab="details">Product Details</li>
-          <li class="tabs__item tabs__item--active" data-tab="reviews">
-            Rating & Reviews
-          </li>
-          <li class="tabs__item" data-tab="faqs">FAQs</li>
-        </ul>
-      </nav>
-
-      <!-- TAB CONTENT -->
-      <main>
-        <!-- Product Details -->
-        <section id="details" class="content-section">
-          <h2>Product Details</h2>
-          <p>
-            This is detailed information about the product. Fabric is made from
-            100% cotton High-class, airy and durable. The product is designed
-            with style Modern, suitable for many different styles.
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <div class="site-header__top-bar">
+        <!-- Thêm container vào đây -->
+        <div class="container site-header__top-bar-container">
+          <p class="site-header__promo-text">
+            Sign up and get 20% off to your first order.
+            <a href="#" class="site-header__promo-link">Sign Up Now</a>
           </p>
-        </section>
+          <button class="site-header__close-btn" aria-label="Close">
+            <img src="./close.png" alt="Close icon" />
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="site-header__main">
+          <a href="#" class="site-header__logo">SHOP.CO</a>
+          <nav class="site-header__nav">
+            <ul class="site-header__nav-list">
+              <li class="site-header__nav-item">
+                <a href="#" class="site-header__nav-link site-header__nav-link--dropdown">Shop</a>
+              </li>
+              <li class="site-header__nav-item">
+                <a href="#" class="site-header__nav-link">On Sale</a>
+              </li>
+              <li class="site-header__nav-item">
+                <a href="#" class="site-header__nav-link">New Arrivals</a>
+              </li>
+              <li class="site-header__nav-item">
+                <a href="#" class="site-header__nav-link">Brands</a>
+              </li>
+            </ul>
+          </nav>
+          <form class="site-header__search">
+            <input
+              type="search"
+              class="site-header__search-input"
+              placeholder="Search for products..."
+            />
+            <button
+              type="submit"
+              class="site-header__search-btn"
+              aria-label="Search"
+            >
+              <img src="./search.png" alt="Search icon" />
+            </button>
+          </form>
+          <div class="site-header__actions">
+            <a
+              href="#"
+              class="site-header__action-btn"
+              aria-label="Shopping Cart"
+            >
+              <img src="./cart.png" alt="Cart" />
+            </a>
+            <a
+              href="#"
+              class="site-header__action-btn"
+              aria-label="User Account"
+            >
+              <img src="./user.png" alt="User" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-        <!-- Reviews -->
-        <section id="reviews" class="content-section content-section--active">
-          <div class="reviews">
-            <div class="reviews__header">
-              <h2 class="reviews__title">
-                All Reviews <span class="reviews__title-count">(451)</span>
-              </h2>
-              <div class="reviews__controls">
-                <!-- Filter Button & Dropdown -->
-                <div class="filter">
+    <main class="main-content">
+      <div class="container">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumbs">
+          <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Shop</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Men</a>
+            </li>
+            <li class="breadcrumbs__item" aria-current="page">T-shirts</li>
+          </ol>
+        </nav>
+
+        <!-- PRODUCT SECTION -->
+        <section class="product">
+          <div class="product__gallery">
+            <div class="product__thumbnails">
+              <img
+                src="./shirt_1.png"
+                alt="Thumbnail 1"
+                class="product__thumbnail product__thumbnail--active"
+              />
+              <img
+                src="./shirt_2.png"
+                alt="Thumbnail 2"
+                class="product__thumbnail"
+              />
+              <img
+                src="./shirt_3.png"
+                alt="Thumbnail 3"
+                class="product__thumbnail"
+              />
+            </div>
+            <div class="product__main-image">
+              <img src="./shirt_1.png" alt="One Life Graphic T-Shirt" />
+            </div>
+          </div>
+          <div class="product__details">
+            <h1 class="product__title">ONE LIFE GRAPHIC T-SHIRT</h1>
+            <div class="product__rating-info">
+              <div class="product__stars">
+                <img src="./star-detail.png" alt="star" />
+                <img src="./star-detail.png" alt="star" />
+                <img src="./star-detail.png" alt="star" />
+                <img src="./star-detail.png" alt="star" />
+                <img src="./star-half-detail.png" alt="star-half" />
+              </div>
+              <span class="product__rating-score">4.5/5</span>
+            </div>
+            <div class="product__price-container">
+              <span class="product__price">$260</span>
+              <span class="product__price product__price--original">$300</span>
+              <span class="product__discount">-40%</span>
+            </div>
+            <p class="product__description">
+              This graphic t-shirt which is perfect for any occasion. Crafted
+              from a soft and breathable fabric, it offers superior comfort and
+              style.
+            </p>
+            <div class="product__options">
+              <div class="product__option-group">
+                <label class="product__option-label">Select Colors</label>
+                <div class="product__colors">
                   <button
-                    id="filter-btn"
-                    class="button button--icon"
-                    aria-label="Filter reviews"
-                  >
-                    <img src="./filter.png" alt="" />
-                  </button>
-                  <div class="filter__dropdown">
-                    <ul class="filter__list">
-                      <li class="filter__item" data-rating="0">All Reviews</li>
-                      <li class="filter__item" data-rating="5">
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                      </li>
-                      <li class="filter__item" data-rating="4">
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                      </li>
-                      <li class="filter__item" data-rating="3">
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                      </li>
-                      <li class="filter__item" data-rating="2">
-                        <img src="./star.png" alt="star" />
-                        <img src="./star.png" alt="star" />
-                      </li>
-                      <li class="filter__item" data-rating="1">
-                        <img src="./star.png" alt="star" />
-                      </li>
-                    </ul>
-                  </div>
+                    class="product__color-swatch product__color-swatch--olive product__color-swatch--active"
+                    aria-label="Olive"
+                  ></button>
+                  <button
+                    class="product__color-swatch product__color-swatch--teal"
+                    aria-label="Teal"
+                  ></button>
+                  <button
+                    class="product__color-swatch product__color-swatch--navy"
+                    aria-label="Navy"
+                  ></button>
                 </div>
-                <!-- End Filter -->
-                <button class="button">
-                  Latest
-                  <img src="./arrow-down.png" alt="" />
-                </button>
-                <button class="button button--primary">Write a Review</button>
+              </div>
+              <div class="product__option-group">
+                <label class="product__option-label">Choose Size</label>
+                <div class="product__sizes">
+                  <button class="product__size-btn">Small</button>
+                  <button class="product__size-btn">Medium</button>
+                  <button class="product__size-btn product__size-btn--active">
+                    Large
+                  </button>
+                  <button class="product__size-btn">X-Large</button>
+                </div>
               </div>
             </div>
-
-            <!-- Review cards -->
-            <div id="reviews-grid" class="reviews__grid"></div>
-
-            <div class="reviews__footer">
-              <button class="button button--outline">Load More Reviews</button>
+            <div class="product__actions">
+              <div class="product__quantity">
+                <button
+                  class="product__quantity-btn"
+                  aria-label="Decrease quantity"
+                >
+                  -
+                </button>
+                <span class="product__quantity-value">1</span>
+                <button
+                  class="product__quantity-btn"
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+              </div>
+              <button class="button button--primary product__add-to-cart">
+                Add to Cart
+              </button>
             </div>
           </div>
         </section>
 
-        <!-- FAQs -->
-        <section id="faqs" class="content-section">
-          <h2>FAQs (Frequently Asked Questions)</h2>
-          <p>
-            <strong>Question:</strong> Is the product under warranty?<br />
-            <strong>Answer:</strong> Yes, the product is under warranty for 6
-            months against manufacturing defects.
-          </p>
-          <p>
-            <strong>Question:</strong> Can I return the product if I'm not
-            satisfied?
-            <br />
-            <strong>Answer:</strong> Absolutely. We have a 7-day return policy
-            from the date of receipt. You can return the product for a full
-            refund or exchange within this period.
-          </p>
+        <!-- TABS -->
+        <nav class="tabs">
+          <ul class="tabs__list">
+            <li class="tabs__item" data-tab="details">Product Details</li>
+            <li class="tabs__item tabs__item--active" data-tab="reviews">
+              Rating & Reviews
+            </li>
+            <li class="tabs__item" data-tab="faqs">FAQs</li>
+          </ul>
+        </nav>
+
+        <!-- TAB CONTENT -->
+        <div class="tab-content">
+          <!-- Product Details -->
+          <section id="details" class="content-section">
+            <h2>Product Details</h2>
+            <p>
+              This is detailed information about the product. Fabric is made
+              from 100% cotton High-class, airy and durable. The product is
+              designed with style Modern, suitable for many different styles.
+            </p>
+          </section>
+
+          <!-- Reviews -->
+          <section id="reviews" class="content-section content-section--active">
+            <div class="reviews">
+              <div class="reviews__header">
+                <h2 class="reviews__title">
+                  All Reviews <span class="reviews__title-count">(451)</span>
+                </h2>
+                <div class="reviews__controls">
+                  <!-- Filter Button & Dropdown -->
+                  <div class="filter">
+                    <button
+                      id="filter-btn"
+                      class="button button--icon"
+                      aria-label="Filter reviews"
+                    >
+                      <img src="./filter.png" alt="" />
+                    </button>
+                    <div class="filter__dropdown">
+                      <ul class="filter__list">
+                        <li class="filter__item" data-rating="0">
+                          All Reviews
+                        </li>
+                        <li class="filter__item" data-rating="5">
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                        </li>
+                        <li class="filter__item" data-rating="4">
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                        </li>
+                        <li class="filter__item" data-rating="3">
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                        </li>
+                        <li class="filter__item" data-rating="2">
+                          <img src="./star.png" alt="star" />
+                          <img src="./star.png" alt="star" />
+                        </li>
+                        <li class="filter__item" data-rating="1">
+                          <img src="./star.png" alt="star" />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End Filter -->
+                  <button class="button">
+                    Latest
+                    <img src="./arrow-down.png" alt="" />
+                  </button>
+                  <button class="button button--primary">Write a Review</button>
+                </div>
+              </div>
+
+              <!-- Review cards -->
+              <div id="reviews-grid" class="reviews__grid"></div>
+
+              <div class="reviews__footer">
+                <button class="button button--outline">
+                  Load More Reviews
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQs -->
+          <section id="faqs" class="content-section">
+            <h2>FAQs (Frequently Asked Questions)</h2>
+            <p>
+              <strong>Question:</strong> Is the product under warranty?<br />
+              <strong>Answer:</strong> Yes, the product is under warranty for 6
+              months against manufacturing defects.
+            </p>
+            <p>
+              <strong>Question:</strong> Can I return the product if I'm not
+              satisfied?
+              <br />
+              <strong>Answer:</strong> Absolutely. We have a 7-day return policy
+              from the date of receipt. You can return the product for a full
+              refund or exchange within this period.
+            </p>
+          </section>
+        </div>
+
+        <!-- RECOMMENDATIONS SECTION -->
+        <section class="recommendations">
+          <h2 class="recommendations__title">YOU MIGHT ALSO LIKE</h2>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button
+              id="prev-slide-btn"
+              class="slider-btn"
+              aria-label="Previous slide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button
+              id="next-slide-btn"
+              class="slider-btn"
+              aria-label="Next slide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Slider Wrapper -->
+          <div class="recommendations__slider-wrapper">
+            <!-- Product cards -->
+            <div
+              id="recommendations-track"
+              class="recommendations__track"
+            ></div>
+          </div>
         </section>
-      </main>
+      </div>
+    </main>
 
-      <!-- RECOMMENDATIONS SECTION -->
-      <section class="recommendations">
-        <h2 class="recommendations__title">YOU MIGHT ALSO LIKE</h2>
-
-        <!-- Slider Controls -->
-        <div class="slider-controls">
-          <button
-            id="prev-slide-btn"
-            class="slider-btn"
-            aria-label="Previous slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="container newsletter__container">
+        <h2 class="newsletter__title">
+          STAY UPTO DATE ABOUT <br />
+          OUR LATEST OFFERS
+        </h2>
+        <form class="newsletter__form">
+          <div class="newsletter__input-wrapper">
+            <img src="./email.png" alt="email icon" class="newsletter__icon" />
+            <input
+              type="email"
+              class="newsletter__input"
+              placeholder="Enter your email address"
+            />
+          </div>
+          <button type="submit" class="button newsletter__button">
+            Subscribe to Newsletter
           </button>
-          <button
-            id="next-slide-btn"
-            class="slider-btn"
-            aria-label="Next slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
+        </form>
+      </div>
+    </section>
 
-        <!-- Slider Wrapper -->
-        <div class="recommendations__slider-wrapper">
-          <!-- Product cards -->
-          <div id="recommendations-track" class="recommendations__track"></div>
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__about">
+            <h3 class="site-footer__logo">SHOP.CO</h3>
+            <p class="site-footer__description">
+              We have clothes that suits your style and which you’re proud to
+              wear. From women to men.
+            </p>
+            <ul class="site-footer__socials">
+              <li>
+                <a href="#" class="site-footer__social-link"
+                  ><img src="./twitter.png" alt="Twitter"
+                /></a>
+              </li>
+              <li>
+                <a href="#" class="site-footer__social-link"
+                  ><img src="./facebook.png" alt="Facebook"
+                /></a>
+              </li>
+              <li>
+                <a href="#" class="site-footer__social-link"
+                  ><img src="./instagram.png" alt="Instagram"
+                /></a>
+              </li>
+              <li>
+                <a href="#" class="site-footer__social-link"
+                  ><img src="./github.png" alt="Github"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div class="site-footer__links-group">
+            <h4 class="site-footer__links-title">Company</h4>
+            <ul class="site-footer__links-list">
+              <li><a href="#" class="site-footer__link">About</a></li>
+              <li><a href="#" class="site-footer__link">Features</a></li>
+              <li><a href="#" class="site-footer__link">Works</a></li>
+              <li><a href="#" class="site-footer__link">Career</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__links-group">
+            <h4 class="site-footer__links-title">Help</h4>
+            <ul class="site-footer__links-list">
+              <li>
+                <a href="#" class="site-footer__link">Customer Support</a>
+              </li>
+              <li>
+                <a href="#" class="site-footer__link">Delivery Details</a>
+              </li>
+              <li>
+                <a href="#" class="site-footer__link">Terms & Conditions</a>
+              </li>
+              <li><a href="#" class="site-footer__link">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__links-group">
+            <h4 class="site-footer__links-title">FAQ</h4>
+            <ul class="site-footer__links-list">
+              <li><a href="#" class="site-footer__link">Account</a></li>
+              <li>
+                <a href="#" class="site-footer__link">Manage Deliveries</a>
+              </li>
+              <li><a href="#" class="site-footer__link">Orders</a></li>
+              <li><a href="#" class="site-footer__link">Payments</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__links-group">
+            <h4 class="site-footer__links-title">Resources</h4>
+            <ul class="site-footer__links-list">
+              <li><a href="#" class="site-footer__link">Free eBooks</a></li>
+              <li>
+                <a href="#" class="site-footer__link">Development Tutorial</a>
+              </li>
+              <li><a href="#" class="site-footer__link">How to - Blog</a></li>
+              <li>
+                <a href="#" class="site-footer__link">Youtube Playlist</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </section>
-    </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">
+            Shop.co © 2000-2023, All Rights Reserved
+          </p>
+          <div class="site-footer__payments">
+            <img src="./visa.png" alt="Visa" />
+            <img src="./mastercard.png" alt="Mastercard" />
+            <img src="./paypal.png" alt="Paypal" />
+            <img src="./apple-pay.png" alt="Apple Pay" />
+            <img src="./google-pay.png" alt="Google Pay" />
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
