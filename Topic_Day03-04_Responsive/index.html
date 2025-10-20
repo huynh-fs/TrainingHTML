@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic Day 04</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- TABS -->
+      <nav class="tabs">
+        <ul class="tabs__list">
+          <li class="tabs__item" data-tab="details">Product Details</li>
+          <li class="tabs__item tabs__item--active" data-tab="reviews">
+            Rating & Reviews
+          </li>
+          <li class="tabs__item" data-tab="faqs">FAQs</li>
+        </ul>
+      </nav>
+
+      <!-- TAB CONTENT -->
+      <main>
+        <!-- Product Details -->
+        <section id="details" class="content-section">
+          <h2>Product Details</h2>
+          <p>
+            This is detailed information about the product. Fabric is made from
+            100% cotton High-class, airy and durable. The product is designed
+            with style Modern, suitable for many different styles.
+          </p>
+        </section>
+
+        <!-- Reviews -->
+        <section id="reviews" class="content-section content-section--active">
+          <div class="reviews">
+            <div class="reviews__header">
+              <h2 class="reviews__title">
+                All Reviews <span class="reviews__title-count">(451)</span>
+              </h2>
+              <div class="reviews__controls">
+                <!-- Filter Button & Dropdown -->
+                <div class="filter">
+                  <button
+                    id="filter-btn"
+                    class="button button--icon"
+                    aria-label="Filter reviews"
+                  >
+                    <img src="./filter.png" alt="" />
+                  </button>
+                  <div class="filter__dropdown">
+                    <ul class="filter__list">
+                      <li class="filter__item" data-rating="0">All Reviews</li>
+                      <li class="filter__item" data-rating="5">
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                      </li>
+                      <li class="filter__item" data-rating="4">
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                      </li>
+                      <li class="filter__item" data-rating="3">
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                      </li>
+                      <li class="filter__item" data-rating="2">
+                        <img src="./star.png" alt="star" />
+                        <img src="./star.png" alt="star" />
+                      </li>
+                      <li class="filter__item" data-rating="1">
+                        <img src="./star.png" alt="star" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- End Filter -->
+                <button class="button">
+                  Latest
+                  <img src="./arrow-down.png" alt="" />
+                </button>
+                <button class="button button--primary">Write a Review</button>
+              </div>
+            </div>
+
+            <!-- Review cards -->
+            <div id="reviews-grid" class="reviews__grid"></div>
+
+            <div class="reviews__footer">
+              <button class="button button--outline">Load More Reviews</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs" class="content-section">
+          <h2>FAQs (Frequently Asked Questions)</h2>
+          <p>
+            <strong>Question:</strong> Is the product under warranty?<br />
+            <strong>Answer:</strong> Yes, the product is under warranty for 6
+            months against manufacturing defects.
+          </p>
+          <p>
+            <strong>Question:</strong> Can I return the product if I'm not
+            satisfied?
+            <br />
+            <strong>Answer:</strong> Absolutely. We have a 7-day return policy
+            from the date of receipt. You can return the product for a full
+            refund or exchange within this period.
+          </p>
+        </section>
+      </main>
+
+      <!-- RECOMMENDATIONS SECTION -->
+      <section class="recommendations">
+        <h2 class="recommendations__title">YOU MIGHT ALSO LIKE</h2>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+          <button
+            id="prev-slide-btn"
+            class="slider-btn"
+            aria-label="Previous slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button
+            id="next-slide-btn"
+            class="slider-btn"
+            aria-label="Next slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Slider Wrapper -->
+        <div class="recommendations__slider-wrapper">
+          <!-- Product cards -->
+          <div id="recommendations-track" class="recommendations__track"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
