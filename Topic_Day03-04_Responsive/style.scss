@@ -152,6 +152,14 @@ ul {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
+  &__menu-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
   &__logo {
     font-family: var(--font-family-secondary);
     font-size: 32px;
@@ -218,6 +226,19 @@ ul {
     display: flex;
     gap: 16px;
     margin-top: 14px;
+  }
+
+  &__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+  &__action-btn--search-mobile {
+    display: none;
   }
 }
 
@@ -388,7 +409,7 @@ ul {
     width: 37px;
     height: 37px;
     border-radius: 50%;
-    border: 2px solid var(--color-white);
+    border: 0;
     outline: 1px solid transparent;
     cursor: pointer;
     transition: outline-color 0.2s;
@@ -404,7 +425,6 @@ ul {
     }
 
     &--active {
-      outline-color: var(--color-black);
       position: relative;
 
       &::after {
@@ -433,7 +453,8 @@ ul {
     transition: background-color 0.2s, color 0.2s;
 
     &:hover {
-      background-color: var(--color-gray-200);
+      background-color: var(--color-black);
+      color: var(--color-white);
     }
 
     &--active {
@@ -856,7 +877,7 @@ ul {
 /* Recommendations Slider Styles */
 .recommendations {
   position: relative;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 .recommendations__slider-wrapper {
@@ -866,13 +887,16 @@ ul {
 .recommendations__track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  padding: 0 16px;
+  cursor: grab;
+  touch-action: pan-y;
 }
 
 .product-card {
   flex-shrink: 0;
   padding: 0 8px;
-  width: 25%;
   box-sizing: border-box;
+  width: 25%;
 }
 
 /* Slider Controls Styles */
@@ -893,22 +917,14 @@ ul {
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-200);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
-
-  &:first-child {
-    transform: translateX(-50%);
-  }
-
-  &:last-child {
-    transform: translateX(50%);
-  }
 
   &:hover {
     background-color: var(--color-gray-100);
@@ -992,14 +1008,22 @@ ul {
   &__main {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 120px;
     padding-bottom: 40px;
     margin-bottom: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
+  &__links-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-grow: 1;
+  }
+
   &__about {
     max-width: 250px;
+    flex-shrink: 0;
   }
 
   &__logo {
@@ -1088,66 +1112,73 @@ ul {
 
   /* Site Header */
   .site-header {
-    &__top-bar {
-      background-color: var(--color-black);
-      color: var(--color-white);
-      font-size: 12px;
-      text-align: center;
-    }
-
-    &__top-bar-container {
+    &__main {
       display: flex;
-      justify-content: center;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      position: relative;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      gap: 16px;
+      padding: 14px 0 18px 0;
     }
 
-    &__promo-text {
+    &__logo {
+      justify-self: center;
       margin: 0;
-    }
-
-    &__promo-link {
-      color: inherit;
-      text-decoration: underline;
-      font-weight: 500;
-      margin-left: 4px;
+      padding: 0;
     }
 
     &__close-btn {
       display: none;
     }
 
-    &__main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 14px 0 18px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    &__menu-btn {
+      display: block;
     }
 
-    &__logo {
-      font-family: var(--font-family-secondary);
-      font-size: 25.2px;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--color-black);
+    &__action-btn--search-mobile {
+      display: inline-flex;
+      img {
+        width: 23px;
+        height: 23px;
+      }
+    }
+
+    &__actions {
+      margin-top: 6px;
     }
 
     &__nav {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--color-white);
+      z-index: 100;
+
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+
+      &.is-open {
+        transform: translateX(0);
+      }
     }
 
     &__search {
       display: none;
     }
 
-    &__actions {
-      display: flex;
-      gap: 16px;
-      margin-top: 14px;
+    &__nav-list {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__nav-link {
+      font-size: 24px;
     }
   }
 
@@ -1195,11 +1226,13 @@ ul {
     &__gallery {
       flex-direction: column-reverse;
       gap: 16px;
+      align-items: center;
     }
 
     &__thumbnails {
       flex-direction: row;
       gap: 14px;
+      justify-content: center;
     }
 
     &__thumbnail {
@@ -1406,45 +1439,18 @@ ul {
     }
   }
 
-  /* Recommendations Slider Styles */
+  /* Recommendations --- */
   .recommendations {
     padding: 0;
   }
 
-  .recommendations__slider-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  .product-card {
+    width: 70%;
+    padding: 0 10px;
   }
 
   .recommendations__track {
-    transition: none;
-    transform: none !important;
-  }
-
-  .product-card {
-    flex: 0 0 50%;
-    padding-right: 8px;
-  }
-
-  /* Product Card --- */
-  .product-card {
-    max-width: 198px;
-    width: 50%;
-
-    &__name {
-      font-size: 16px;
-    }
-
-    &__price {
-      font-size: 20px;
-      &--original {
-        font-size: 20px;
-      }
-    }
+    padding-left: 20px;
   }
 
   .slider-controls {
@@ -1515,102 +1521,28 @@ ul {
 
   /* Site Footer */
   .site-footer {
-    background-color: var(--color-gray-100);
-    padding: 150px 0 50px 0;
-    font-size: 14px;
-    position: relative;
-    z-index: 1;
+    padding-top: 120px;
 
     &__main {
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 40px;
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      align-items: flex-start;
+      gap: 32px;
     }
 
     &__about {
-      max-width: 250px;
+      max-width: 100%;
     }
 
-    &__logo {
-      font-family: var(--font-family-secondary);
-      font-size: 34px;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--color-black);
-      margin: 0 0 16px 0;
-    }
-
-    &__description {
-      color: var(--color-gray-600);
-      line-height: 1.5;
-      margin: 0 0 24px 0;
-    }
-
-    &__socials {
-      display: flex;
-      gap: 12px;
-    }
-
-    &__social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: var(--color-white);
-      transition: background-color 0.2s;
-
-      &:hover {
-        background-color: var(--color-gray-300);
-      }
-    }
-
-    &__links-group {
-      flex-shrink: 0;
-    }
-
-    &__links-title {
-      text-transform: uppercase;
-      font-weight: 500;
-      margin: 0 0 20px 0;
-      font-size: 16px;
-      letter-spacing: 1px;
-    }
-
-    &__links-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    &__link {
-      text-decoration: none;
-      color: var(--color-gray-600);
-      transition: color 0.2s;
-
-      &:hover {
-        color: var(--color-black);
-      }
+    &__links-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 20px;
+      width: 100%;
     }
 
     &__bottom {
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    &__copyright {
-      color: var(--color-gray-600);
-    }
-
-    &__payments {
-      display: flex;
+      gap: 20px;
     }
   }
 }

@@ -109,6 +109,58 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
+  // PRODUCT OPTIONS LOGIC
+
+  // Color và Size
+  const colorSwatches = document.querySelectorAll(".product__color-swatch");
+  const sizeBtns = document.querySelectorAll(".product__size-btn");
+
+  function handleActiveState(elements, activeClass) {
+    elements.forEach((element) => {
+      element.addEventListener("click", () => {
+        elements.forEach((el) => el.classList.remove(activeClass));
+        element.classList.add(activeClass);
+      });
+    });
+  }
+
+  if (colorSwatches.length > 0) {
+    handleActiveState(colorSwatches, "product__color-swatch--active");
+  }
+
+  if (sizeBtns.length > 0) {
+    handleActiveState(sizeBtns, "product__size-btn--active");
+  }
+
+  // Quantity Selector
+  const quantityContainer = document.querySelector(".product__quantity");
+
+  if (quantityContainer) {
+    const decreaseBtn = quantityContainer.querySelector(
+      '.product__quantity-btn[aria-label="Decrease quantity"]'
+    );
+    const increaseBtn = quantityContainer.querySelector(
+      '.product__quantity-btn[aria-label="Increase quantity"]'
+    );
+    const quantityValueEl = quantityContainer.querySelector(
+      ".product__quantity-value"
+    );
+
+    increaseBtn.addEventListener("click", () => {
+      let currentValue = parseInt(quantityValueEl.textContent);
+      currentValue++;
+      quantityValueEl.textContent = currentValue;
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      let currentValue = parseInt(quantityValueEl.textContent);
+      if (currentValue > 1) {
+        currentValue--;
+        quantityValueEl.textContent = currentValue;
+      }
+    });
+  }
+
   // TABS LOGIC
   const tabs = document.querySelectorAll(".tabs__item");
   const tabContents = document.querySelectorAll(".content-section");
@@ -151,12 +203,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!reviewsGrid) return;
     reviewsGrid.innerHTML = "";
 
-    if (reviewsToRender.length === 0) {
+    const isMobile = window.innerWidth <= 480;
+
+    const reviewsToDisplay = isMobile
+      ? reviewsToRender.slice(0, 3)
+      : reviewsToRender;
+
+    if (reviewsToDisplay.length === 0) {
       reviewsGrid.innerHTML = "<p>No reviews match the selected filter.</p>";
       return;
     }
 
-    reviewsToRender.forEach((review) => {
+    reviewsToDisplay.forEach((review) => {
       const reviewCard = `
         <article class="review-card">
           <div class="review-card__header">
@@ -226,125 +284,214 @@ document.addEventListener("DOMContentLoaded", function () {
   const recommendationsTrack = document.getElementById("recommendations-track");
   const nextBtn = document.getElementById("next-slide-btn");
   const prevBtn = document.getElementById("prev-slide-btn");
-
-  function createProductStarsHTML(rating) {
-    let starsHTML = "";
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-
-    for (let i = 0; i < fullStars; i++) {
-      starsHTML += `<img src="./star-min.png" alt="" />`;
-    }
-    if (hasHalfStar) {
-      starsHTML += `<img src="./star-half-min.png" alt="" />`;
-    }
-    return starsHTML;
-  }
+  let autoplayInterval = null;
 
   function renderRecommendations() {
     if (!recommendationsTrack) return;
     recommendationsTrack.innerHTML = "";
 
-    const totalItems = recommendationsData.length;
-    const itemsVisible = 4;
-
-    const totalTrackWidth = (totalItems / itemsVisible) * 100;
-    recommendationsTrack.style.width = `${totalTrackWidth}%`;
-
-    const itemWidth = 100 / totalItems;
+    function createProductStarsHTML(rating) {
+      let starsHTML = "";
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 !== 0;
+      for (let i = 0; i < fullStars; i++) {
+        starsHTML += `<img src="./star-min.png" alt="" />`;
+      }
+      if (hasHalfStar) {
+        starsHTML += `<img src="./star-half-min.png" alt="" />`;
+      }
+      return starsHTML;
+    }
 
     recommendationsData.forEach((product) => {
       const productCard = document.createElement("article");
       productCard.className = "product-card";
-      productCard.style.width = `${itemWidth}%`;
-
       productCard.innerHTML = `
-          <div class="product-card__image-wrapper">
-            <img src="${product.imgSrc}" alt="${product.name}" />
-          </div>
-          <h3 class="product-card__name">${product.name}</h3>
-          <div class="product-card__rating">
-            <div class="product-card__stars">
-              ${createProductStarsHTML(product.rating)}
-            </div>
-            <span class="product-card__score">
-              ${product.rating.toFixed(
-                1
-              )}/<span class="product-card__score-total">5</span>
-            </span>
-          </div>
-          <div class="product-card__price-container">
-            <span class="product-card__price">$${product.price}</span>
-            ${
-              product.originalPrice
-                ? `<span class="product-card__price--original">$${product.originalPrice}</span>`
-                : ""
-            }
-            ${
-              product.discount
-                ? `<span class="product-card__discount">${product.discount}%</span>`
-                : ""
-            }
-          </div>
-        `;
+        <div class="product-card__image-wrapper">
+          <img src="${product.imgSrc}" alt="${product.name}" />
+        </div>
+        <h3 class="product-card__name">${product.name}</h3>
+        <div class="product-card__rating">
+          <div class="product-card__stars">${createProductStarsHTML(
+            product.rating
+          )}</div>
+          <span class="product-card__score">${product.rating.toFixed(
+            1
+          )}/<span class="product-card__score-total">5</span></span>
+        </div>
+        <div class="product-card__price-container">
+          <span class="product-card__price">$${product.price}</span>
+          ${
+            product.originalPrice
+              ? `<span class="product-card__price--original">$${product.originalPrice}</span>`
+              : ""
+          }
+          ${
+            product.discount
+              ? `<span class="product-card__discount">${product.discount}%</span>`
+              : ""
+          }
+        </div>
+      `;
       recommendationsTrack.appendChild(productCard);
     });
   }
 
-  // LOGIC SLIDER
-  let currentItemIndex = 0;
-  const totalItems = recommendationsData.length;
-  const itemsVisible = 4;
-  const maxIndex = totalItems - itemsVisible;
-  let autoplayInterval = null;
+  function setupSlider() {
+    if (!recommendationsTrack || !nextBtn || !prevBtn) return;
 
-  function updateSliderPosition() {
-    if (!recommendationsTrack) return;
-    const itemWidthPercentage = 100 / totalItems;
-    const offset = -currentItemIndex * itemWidthPercentage;
-    recommendationsTrack.style.transform = `translateX(${offset}%)`;
-  }
+    let currentIndex = 0;
+    const slides = Array.from(recommendationsTrack.children);
+    if (!slides.length) return;
+    const totalItems = slides.length;
 
-  function showNextSlide() {
-    if (currentItemIndex < maxIndex) {
-      currentItemIndex++;
-    } else {
-      currentItemIndex = 0;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let animationID;
+
+    function getSliderMetrics() {
+      const slideWidth = slides[0].offsetWidth;
+      const itemsVisible = Math.round(
+        recommendationsTrack.parentElement.offsetWidth / slideWidth
+      );
+      const maxIndex = totalItems - itemsVisible;
+      return { slideWidth, itemsVisible, maxIndex };
     }
-    updateSliderPosition();
-  }
 
-  function showPrevSlide() {
-    if (currentItemIndex > 0) {
-      currentItemIndex--;
-    } else {
-      currentItemIndex = maxIndex;
+    function updatePosition() {
+      const { slideWidth, maxIndex } = getSliderMetrics();
+
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
+
+      currentTranslate = -currentIndex * slideWidth;
+      recommendationsTrack.style.transform = `translateX(${currentTranslate}px)`;
     }
-    updateSliderPosition();
-  }
 
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayInterval = setInterval(showNextSlide, 30000);
-  }
+    function showNextSlide() {
+      const { maxIndex } = getSliderMetrics();
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updatePosition();
+    }
 
-  function stopAutoplay() {
-    clearInterval(autoplayInterval);
-  }
+    function showPrevSlide() {
+      const { maxIndex } = getSliderMetrics();
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = maxIndex;
+      }
+      updatePosition();
+    }
 
-  if (nextBtn && prevBtn) {
-    nextBtn.addEventListener("click", () => {
+    // Autoplay
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayInterval = setInterval(showNextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    function getPositionX(event) {
+      if (event.type.includes("mouse")) {
+        return event.pageX;
+      } else if (event.touches && event.touches.length > 0) {
+        return event.touches[0].clientX;
+      } else if (event.changedTouches && event.changedTouches.length > 0) {
+        return event.changedTouches[0].clientX;
+      }
+      return 0;
+    }
+
+    function touchStart(event) {
+      stopAutoplay();
+      isDragging = true;
+      startPos = getPositionX(event);
+
+      const transformMatrix = window
+        .getComputedStyle(recommendationsTrack)
+        .getPropertyValue("transform");
+      if (transformMatrix !== "none") {
+        currentTranslate = parseInt(transformMatrix.split(",")[4].trim());
+      } else {
+        currentTranslate = 0;
+      }
+
+      recommendationsTrack.style.transition = "none";
+      recommendationsTrack.style.cursor = "grabbing";
+    }
+
+    function touchMove(event) {
+      if (isDragging) {
+        const currentPosition = getPositionX(event);
+        const moveX = currentPosition - startPos;
+        recommendationsTrack.style.transform = `translateX(${
+          currentTranslate + moveX
+        }px)`;
+      }
+    }
+
+    function touchEnd(event) {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const endPos = getPositionX(event);
+      const movedBy = startPos - endPos;
+      const { slideWidth, maxIndex } = getSliderMetrics();
+
+      if (movedBy > slideWidth / 4 && currentIndex < maxIndex) {
+        currentIndex++;
+      }
+      if (movedBy < -slideWidth / 4 && currentIndex > 0) {
+        currentIndex--;
+      }
+
+      recommendationsTrack.style.transition = "transform 0.5s ease-in-out";
+      recommendationsTrack.style.cursor = "grab";
+      updatePosition();
+      startAutoplay();
+    }
+
+    nextBtn.onclick = () => {
       showNextSlide();
       startAutoplay();
-    });
-
-    prevBtn.addEventListener("click", () => {
+    };
+    prevBtn.onclick = () => {
       showPrevSlide();
       startAutoplay();
+    };
+
+    slides.forEach((slide) => {
+      slide
+        .querySelector("img")
+        .addEventListener("dragstart", (e) => e.preventDefault());
+
+      slide.addEventListener("touchstart", touchStart, { passive: true });
+      slide.addEventListener("touchend", touchEnd);
+      slide.addEventListener("touchmove", touchMove, { passive: true });
+
+      slide.addEventListener("mousedown", touchStart);
+      slide.addEventListener("mouseup", touchEnd);
+      slide.addEventListener("mouseleave", touchEnd);
+      slide.addEventListener("mousemove", touchMove);
     });
+
+    window.addEventListener("resize", () => {
+      currentIndex = 0;
+      updatePosition();
+    });
+
+    startAutoplay();
   }
 
   renderReviews(reviewsData);
   renderRecommendations();
-  startAutoplay();
+  setupSlider();
 });

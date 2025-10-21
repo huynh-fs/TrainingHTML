@@ -22,7 +22,17 @@
       </div>
       <div class="container">
         <div class="site-header__main">
-          <a href="#" class="site-header__logo">SHOP.CO</a>
+          <div class="site-header__menu-logo">
+            <button
+              class="site-header__menu-btn"
+              aria-label="Open menu"
+              aria-expanded="false"
+            >
+              <img src="./hamburger-menu.png" alt="Menu icon" />
+            </button>
+
+            <a href="#" class="site-header__logo">SHOP.CO</a>
+          </div>
           <nav class="site-header__nav">
             <ul class="site-header__nav-list">
               <li class="site-header__nav-item">
@@ -58,6 +68,13 @@
             </button>
           </form>
           <div class="site-header__actions">
+            <a
+              href="#"
+              class="site-header__action-btn site-header__action-btn--search-mobile"
+              aria-label="Search"
+            >
+              <img src="./search.png" alt="Search icon" />
+            </a>
             <a
               href="#"
               class="site-header__action-btn"
@@ -280,7 +297,10 @@
               <div id="reviews-grid" class="reviews__grid"></div>
 
               <div class="reviews__footer">
-                <button class="button button--outline">
+                <button
+                  class="button button--outline"
+                  id="load-more-reviews-btn"
+                >
                   Load More Reviews
                 </button>
               </div>
@@ -419,53 +439,57 @@
               </li>
             </ul>
           </div>
-          <div class="site-footer__links-group">
-            <h4 class="site-footer__links-title">Company</h4>
-            <ul class="site-footer__links-list">
-              <li><a href="#" class="site-footer__link">About</a></li>
-              <li><a href="#" class="site-footer__link">Features</a></li>
-              <li><a href="#" class="site-footer__link">Works</a></li>
-              <li><a href="#" class="site-footer__link">Career</a></li>
-            </ul>
-          </div>
-          <div class="site-footer__links-group">
-            <h4 class="site-footer__links-title">Help</h4>
-            <ul class="site-footer__links-list">
-              <li>
-                <a href="#" class="site-footer__link">Customer Support</a>
-              </li>
-              <li>
-                <a href="#" class="site-footer__link">Delivery Details</a>
-              </li>
-              <li>
-                <a href="#" class="site-footer__link">Terms & Conditions</a>
-              </li>
-              <li><a href="#" class="site-footer__link">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="site-footer__links-group">
-            <h4 class="site-footer__links-title">FAQ</h4>
-            <ul class="site-footer__links-list">
-              <li><a href="#" class="site-footer__link">Account</a></li>
-              <li>
-                <a href="#" class="site-footer__link">Manage Deliveries</a>
-              </li>
-              <li><a href="#" class="site-footer__link">Orders</a></li>
-              <li><a href="#" class="site-footer__link">Payments</a></li>
-            </ul>
-          </div>
-          <div class="site-footer__links-group">
-            <h4 class="site-footer__links-title">Resources</h4>
-            <ul class="site-footer__links-list">
-              <li><a href="#" class="site-footer__link">Free eBooks</a></li>
-              <li>
-                <a href="#" class="site-footer__link">Development Tutorial</a>
-              </li>
-              <li><a href="#" class="site-footer__link">How to - Blog</a></li>
-              <li>
-                <a href="#" class="site-footer__link">Youtube Playlist</a>
-              </li>
-            </ul>
+          <div class="site-footer__links-container">
+            <div class="site-footer__links-group">
+              <h4 class="site-footer__links-title">Company</h4>
+              <ul class="site-footer__links-list">
+                <li><a href="#" class="site-footer__link">About</a></li>
+                <li><a href="#" class="site-footer__link">Features</a></li>
+                <li><a href="#" class="site-footer__link">Works</a></li>
+                <li><a href="#" class="site-footer__link">Career</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__links-group">
+              <h4 class="site-footer__links-title">Help</h4>
+              <ul class="site-footer__links-list">
+                <li>
+                  <a href="#" class="site-footer__link">Customer Support</a>
+                </li>
+                <li>
+                  <a href="#" class="site-footer__link">Delivery Details</a>
+                </li>
+                <li>
+                  <a href="#" class="site-footer__link">Terms & Conditions</a>
+                </li>
+                <li>
+                  <a href="#" class="site-footer__link">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <div class="site-footer__links-group">
+              <h4 class="site-footer__links-title">FAQ</h4>
+              <ul class="site-footer__links-list">
+                <li><a href="#" class="site-footer__link">Account</a></li>
+                <li>
+                  <a href="#" class="site-footer__link">Manage Deliveries</a>
+                </li>
+                <li><a href="#" class="site-footer__link">Orders</a></li>
+                <li><a href="#" class="site-footer__link">Payments</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__links-group">
+              <h4 class="site-footer__links-title">Resources</h4>
+              <ul class="site-footer__links-list">
+                <li><a href="#" class="site-footer__link">Free eBooks</a></li>
+                <li>
+                  <a href="#" class="site-footer__link">Development Tutorial</a>
+                </li>
+                <li><a href="#" class="site-footer__link">How to - Blog</a></li>
+                <li>
+                  <a href="#" class="site-footer__link">Youtube Playlist</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="site-footer__bottom">
