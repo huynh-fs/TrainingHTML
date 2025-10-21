@@ -1,0 +1,701 @@
+// Import các biến
+@import "variables";
+
+//===== BASE & RESET =====
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-primary;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+//===== HELPERS =====
+.container {
+  width: 100%;
+  max-width: $layout-container-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//===== HEADER BLOCK =====
+.header {
+  // Thêm viền cam trên cùng
+  border-top: 5px solid $color-primary;
+
+  // Element: Top Bar (full-width)
+  &__top-bar {
+    width: 100%;
+    font-size: $font-size-small;
+    color: $color-text-secondary;
+    padding: 10px 0;
+    // border-bottom: 1px solid $color-border-extralight;
+  }
+
+  // Element: Main content area (full-width)
+  &__main {
+    width: 100%;
+    padding: 20px 0;
+
+    // Container bên trong sẽ dàn layout
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  // Element: Logo Group
+  &__logo-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__logo-feminine,
+  &__logo-acti {
+    width: 200px;
+    height: auto;
+  }
+
+  // Element: Contact Info
+  &__contact-info {
+    text-align: right;
+    color: $color-text-secondary;
+  }
+
+  &__address,
+  &__hours,
+  &__reception,
+  &__holiday {
+    font-size: $font-size-small;
+    margin-bottom: 5px;
+  }
+
+  &__holiday {
+    color: $color-primary;
+  }
+
+  &__phone {
+    font-size: $font-size-large;
+    font-weight: bold;
+    color: $color-primary;
+    background: url("/images/phone_icon.png") no-repeat left center;
+    padding-left: 35px;
+    background-size: 25px;
+    margin: 5px 0;
+  }
+
+  // Element: Navigation (full-width)
+  &__nav {
+    width: 100%;
+    background-color: $color-bg-light;
+    border-top: 2px solid $color-border-light;
+    border-bottom: 2px solid $color-border-light;
+  }
+
+  &__nav-list {
+    display: flex;
+  }
+
+  &__nav-item {
+    flex-grow: 1;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 1px;
+      height: 20px;
+      background-color: $color-border-light;
+    }
+
+    &:last-child::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 1px;
+      height: 20px;
+      background-color: $color-border-light;
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &--active {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+.main-visual {
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    $color-bg-gradient-start,
+    $color-white
+  );
+  padding: 10px 0;
+
+  // Element: Content wrapper
+  &__content {
+    position: relative;
+  }
+
+  // Element: Images wrapper
+  &__images {
+    // Không cần display: flex nữa
+    font-size: 0;
+  }
+
+  // Element: Single image (trạng thái mặc định là ẩn)
+  &__image {
+    display: none; // Mặc định ẩn tất cả các ảnh
+    width: 100%; // Khi hiển thị sẽ chiếm 100% chiều rộng
+    height: auto;
+
+    // Modifier: Trạng thái hiển thị
+    &--active {
+      display: block; // Chỉ ảnh có class --active mới được hiển thị
+    }
+  }
+
+  // Element: Title overlay (giữ nguyên)
+  &__title {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: $color-text-secondary;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+  }
+}
+
+//===== REUSABLE COMPONENTS =====
+.section-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $color-primary;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0px; // Vị trí ngay dưới border
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background-color: $color-primary;
+  }
+}
+
+.section-title--no-underline {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  &::after {
+    display: none;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  color: $color-white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  position: relative;
+  padding-right: 35px; // Chừa chỗ cho mũi tên
+
+  &::after {
+    content: "▶";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--primary {
+    background-color: $color-primary;
+  }
+
+  &--full-width {
+    width: 100%;
+    box-sizing: border-box; // Để padding không làm tăng width
+  }
+}
+
+//===== PAGE CONTENT LAYOUT =====
+.page-content {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    gap: 30px; // Khoảng cách giữa 2 cột
+  }
+
+  &__main {
+    flex: 1; // Chiếm hết không gian còn lại
+  }
+
+  &__sidebar {
+    flex-basis: 280px; // Chiều rộng cố định cho sidebar
+    flex-shrink: 0; // Không co lại
+  }
+}
+
+// Blocks specific styling
+section:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+// Block: Concept
+.concept__content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.concept__image {
+  width: 200px;
+  flex-shrink: 0;
+}
+.concept__text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: $color-text-secondary;
+  ul {
+    list-style-type: "・";
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+}
+
+// Block: Menu
+.menu__cards {
+  display: flex;
+  gap: 20px;
+}
+
+.menu__card {
+  flex: 1;
+  border: 1px solid $color-border-light;
+  display: flex;
+  flex-direction: column;
+  color: $color-text-secondary;
+  overflow: hidden; // Đảm bảo các góc bo tròn (nếu có) được áp dụng đúng
+}
+
+.menu__card-header {
+  position: relative; // Rất quan trọng! Đây là "khung" để định vị tiêu đề
+}
+
+.menu__card-image {
+  display: block; // Xóa khoảng trống thừa dưới ảnh
+  width: 100%;
+  height: auto;
+}
+
+.menu__card-title {
+  position: absolute; // Định vị tiêu đề một cách tuyệt đối so với header
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  // Nền trắng mờ
+  background-color: rgba(255, 255, 255, 0.6);
+  // color: $color-text-primary;
+
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 15px;
+  margin: 0; // Ghi đè margin mặc định của thẻ h3
+  box-sizing: border-box;
+}
+
+.menu__card-body {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__card-description {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+// Block: News
+.news__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $color-primary;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background-color: $color-primary;
+  }
+}
+.news__view-all-btn {
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 12px;
+  padding: 5px 15px 5px 25px;
+  border-radius: 3px;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &::before {
+    content: "▶";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8px;
+  }
+}
+.news__list {
+  list-style: none;
+  color: $color-text-secondary;
+}
+.news__item {
+  border-bottom: 1px dotted $color-border-light;
+  padding: 15px 10px;
+  font-size: 14px;
+  time {
+    margin-right: 20px;
+  }
+}
+
+// ===== SIDEBAR WIDGETS =====
+.promo-widget,
+.side-menu,
+.sidebar-banner,
+.info-box {
+  margin-bottom: 25px;
+}
+
+.sidebar-banner {
+  display: block; // Để thẻ <a> có thể chứa ảnh
+  margin-bottom: 25px;
+}
+
+.sidebar-banner img {
+  width: 100%;
+  display: block;
+}
+
+.promo-widget {
+  display: block; // Để thẻ <a> có thể chứa các khối khác
+  position: relative; // "Khung" định vị cho phần content
+  border: 1px solid $color-primary; // Viền cam bên ngoài
+  border-radius: 4px;
+  // padding: 5px; // Tạo khoảng cách cho viền xám bên trong
+  text-decoration: none; // Bỏ gạch chân của thẻ link
+  overflow: hidden; // Đảm bảo nội dung không tràn ra ngoài
+
+  &__image {
+    display: block;
+    width: 100%;
+    // border: 1px solid $color-border-light; // Viền xám bên trong
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 15px; // Căn dưới
+    left: 15px;
+    right: 15px; // Giúp text không bị tràn ra ngoài
+    color: $color-text-secondary; // Màu chữ tối
+    // Hiệu ứng viền trắng mờ xung quanh chữ để dễ đọc hơn
+    text-shadow: 0px 0px 6px $color-white, 0px 0px 4px $color-white;
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  &__highlight {
+    color: #e50000; // Màu đỏ
+    font-size: 1.2em; // To hơn một chút so với chữ xung quanh
+  }
+}
+
+// Widget: Side Menu
+.side-menu {
+  border: 1px solid $color-border-light;
+  padding: 10px;
+}
+.side-menu__title {
+  // background-color: $color-bg-light;
+  color: $color-text-secondary;
+  font-size: 16px;
+  // padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid $color-primary;
+}
+.side-menu__list {
+  list-style: none;
+  // padding: 10px;
+  color: $color-text-secondary;
+}
+.side-menu__category {
+  font-weight: bold;
+  margin-top: 10px;
+  padding-left: 10px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+.side-menu__item a {
+  display: block;
+  padding: 8px 10px 8px 20px;
+  text-decoration: none;
+  position: relative;
+  font-size: 14px;
+  &:hover {
+    color: $color-primary;
+  }
+  &::before {
+    content: "▶";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8px;
+    color: $color-primary;
+  }
+}
+
+// Widget: Info Box
+.info-box {
+  border: 6px solid $color-border-light;
+  border-radius: 4px;
+  padding: 15px;
+  color: $color-text-secondary;
+}
+.info-box__title {
+  font-size: 16px;
+}
+.info-box__content {
+  font-size: 13px;
+  line-height: 1.7;
+
+  p {
+    margin-bottom: 10px;
+  }
+}
+.info-box__phone {
+  font-size: 22px;
+  font-weight: bold;
+  color: $color-primary;
+}
+.info-box__map {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer {
+  // Phần nội dung chính của footer
+  &__main {
+    background-color: #fcf8f0; // Màu nền be nhạt
+    // Thêm họa tiết đường chéo mờ
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+    padding: 40px 0;
+    border-bottom: 1px solid $color-border-light;
+    color: $color-text-secondary;
+
+    .container {
+      display: grid; // << SỬ DỤNG GRID
+      // Định nghĩa 3 cột, cột cuối 280px để thẳng hàng sidebar
+      grid-template-columns: 350px 1fr 280px;
+      gap: 30px; // Khoảng cách giữa các cột
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 200px;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
+  }
+  &__address,
+  &__hours {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  &__phone-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__phone-label {
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  &__phone-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: $color-primary;
+    // Thêm icon điện thoại
+    background: url("/images/phone_icon.png") no-repeat left center;
+    padding-left: 30px;
+    background-size: 22px;
+  }
+
+  // Cột 2: Sitemap (thiết kế lại)
+  &__sitemap {
+    border: 1px solid #e9e4d9; // Viền nhạt
+    padding: 20px;
+  }
+
+  // Cột 3: Dịch vụ (không cần flex-basis)
+  &__services {
+    // styles cũ giữ nguyên
+    background-color: $color-white;
+    padding: 20px;
+    margin-right: 20px;
+
+    &__services-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      padding-left: 15px;
+      position: relative;
+      &::before {
+        content: "○";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color-primary;
+        font-size: 10px;
+      }
+    }
+  }
+
+  // Danh sách link chung
+  &__link-list {
+    list-style: none;
+
+    &--columns {
+      display: grid; // Chuyển sang dùng Grid
+      grid-template-columns: 1fr 1fr; // Chia thành 2 cột bằng nhau
+      grid-template-rows: repeat(6, auto); // Giả định có 6 dòng
+      grid-auto-flow: column; // Lấp đầy theo cột trước (từ trên xuống)
+      gap: 0 20px; // Thêm khoảng cách 20px giữa các cột
+    }
+
+    li a {
+      display: block;
+      padding: 6px 0 6px 15px;
+      font-size: 14px;
+      color: $color-text-primary;
+      text-decoration: none;
+      position: relative;
+      &:hover {
+        color: $color-primary;
+      }
+      &::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 8px;
+        color: $color-primary;
+      }
+    }
+  }
+
+  // Phần copyright
+  &__bottom {
+    background-color: $color-primary;
+    color: $color-white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+  }
+}
