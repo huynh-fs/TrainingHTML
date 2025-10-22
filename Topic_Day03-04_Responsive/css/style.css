@@ -159,7 +159,7 @@ ul {
   cursor: pointer;
 }
 .site-header__nav-link--dropdown::after {
-  content: url("./arrow-down.png");
+  content: url("../images/arrow-down.png");
   margin-left: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -198,7 +198,6 @@ ul {
   border: none;
   cursor: pointer;
   padding: 5px;
-  margin-top: 10px;
 }
 .site-header__action-btn--search-mobile {
   display: none;
@@ -220,7 +219,7 @@ ul {
   color: rgba(0, 0, 0, 0.6);
 }
 .breadcrumbs__item:not(:last-child)::after {
-  content: url("./arrow-right.png");
+  content: url("../images/arrow-right.png");
   display: inline-block;
   margin: 0 14px 0 10px;
   color: rgba(0, 0, 0, 0.6);
@@ -367,7 +366,7 @@ ul {
   position: relative;
 }
 .product__color-swatch--active::after {
-  content: url("./checkmark-white.png");
+  content: url("../images/checkmark-white.png");
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1040,7 +1039,7 @@ ul {
     color: rgba(0, 0, 0, 0.6);
   }
   .breadcrumbs__item:not(:last-child)::after {
-    content: url("./arrow-right.png");
+    content: url("../images/arrow-right.png");
     display: inline-block;
     margin: 0 14px 0 10px;
     color: rgba(0, 0, 0, 0.6);

@@ -188,7 +188,7 @@ ul {
       cursor: pointer;
 
       &::after {
-        content: url("./arrow-down.png");
+        content: url("../images/arrow-down.png");
         margin-left: 4px;
         display: inline-block;
         vertical-align: middle;
@@ -234,7 +234,7 @@ ul {
     border: none;
     cursor: pointer;
     padding: 5px;
-    margin-top: 10px;
+    // margin-top: 10px;
   }
 
   &__action-btn--search-mobile {
@@ -259,7 +259,7 @@ ul {
     color: rgba(0, 0, 0, 0.6);
 
     &:not(:last-child)::after {
-      content: url("./arrow-right.png");
+      content: url("../images/arrow-right.png");
       display: inline-block;
       margin: 0 14px 0 10px;
       color: rgba(0, 0, 0, 0.6);
@@ -428,7 +428,7 @@ ul {
       position: relative;
 
       &::after {
-        content: url("./checkmark-white.png");
+        content: url("../images/checkmark-white.png");
         position: absolute;
         top: 50%;
         left: 50%;
@@ -1199,7 +1199,7 @@ ul {
       color: rgba(0, 0, 0, 0.6);
 
       &:not(:last-child)::after {
-        content: url("./arrow-right.png");
+        content: url("../images/arrow-right.png");
         display: inline-block;
         margin: 0 14px 0 10px;
         color: rgba(0, 0, 0, 0.6);

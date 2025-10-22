@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const recommendationsData = [
     {
-      imgSrc: "./image 7.png",
+      imgSrc: "./images/image 7.png",
       name: "Polo with Contrast Trims",
       rating: 4.0,
       price: 212,
@@ -60,19 +60,19 @@ document.addEventListener("DOMContentLoaded", function () {
       discount: -20,
     },
     {
-      imgSrc: "./image 8.png",
+      imgSrc: "./images/image 8.png",
       name: "Gradient Graphic T-shirt",
       rating: 3.5,
       price: 145,
     },
     {
-      imgSrc: "./image 9.png",
+      imgSrc: "./images/image 9.png",
       name: "Polo with Tipping Details",
       rating: 4.5,
       price: 180,
     },
     {
-      imgSrc: "./image 10.png",
+      imgSrc: "./images/image 10.png",
       name: "Black Striped T-shirt",
       rating: 5.0,
       price: 120,
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       discount: -30,
     },
     {
-      imgSrc: "./image 7.png",
+      imgSrc: "./images/image 7.png",
       name: "Polo with Contrast Trims",
       rating: 4.0,
       price: 212,
@@ -88,19 +88,19 @@ document.addEventListener("DOMContentLoaded", function () {
       discount: -20,
     },
     {
-      imgSrc: "./image 8.png",
+      imgSrc: "./images/image 8.png",
       name: "Gradient Graphic T-shirt",
       rating: 3.5,
       price: 145,
     },
     {
-      imgSrc: "./image 9.png",
+      imgSrc: "./images/image 9.png",
       name: "Polo with Tipping Details",
       rating: 4.5,
       price: 180,
     },
     {
-      imgSrc: "./image 10.png",
+      imgSrc: "./images/image 10.png",
       name: "Black Striped T-shirt",
       rating: 5.0,
       price: 120,
@@ -191,10 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const hasHalfStar = rating % 1 !== 0;
 
     for (let i = 0; i < fullStars; i++) {
-      starsHTML += '<img src="./star.png" alt="star" />';
+      starsHTML += '<img src="./images/star.png" alt="star" />';
     }
     if (hasHalfStar) {
-      starsHTML += '<img src="./star-half.png" alt="star-half" />';
+      starsHTML += '<img src="./images/star-half.png" alt="star-half" />';
     }
     return starsHTML;
   }
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span class="review-card__author-name">${review.author}</span>
                 ${
                   review.verified
-                    ? `<span class="review-card__verified-badge" title="Verified Purchaser"><img src="./check.png" alt="" /></span>`
+                    ? `<span class="review-card__verified-badge" title="Verified Purchaser"><img src="./images/check.png" alt="" /></span>`
                     : ""
                 }
               </div>
@@ -295,10 +295,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const fullStars = Math.floor(rating);
       const hasHalfStar = rating % 1 !== 0;
       for (let i = 0; i < fullStars; i++) {
-        starsHTML += `<img src="./star-min.png" alt="" />`;
+        starsHTML += `<img src="./images/star-min.png" alt="" />`;
       }
       if (hasHalfStar) {
-        starsHTML += `<img src="./star-half-min.png" alt="" />`;
+        starsHTML += `<img src="./images/star-half-min.png" alt="" />`;
       }
       return starsHTML;
     }
