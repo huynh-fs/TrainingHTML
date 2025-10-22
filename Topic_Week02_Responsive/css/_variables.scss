@@ -1,21 +1,31 @@
 //===== COLORS =====
-$color-primary: #e8842c; // Màu cam chủ đạo
-$color-primary-light: #f5b880; // Màu cam nhạt
-$color-text-primary: #333; // Màu chữ chính (đen)
-$color-text-secondary: #66402b; // Màu chữ phụ (xám)
+$color-primary: #f99100;
+$color-primary-light: #ffc472;
+$color-text-primary: #333;
+$color-text-secondary: #66402b;
 $color-white: #fff;
 $color-border-light: #ddd;
 $color-border-extralight: #eee;
 $color-bg-light: #f7f7f7;
 
-$color-bg-gradient-start: #fef5e9; // Màu cam rất nhạt ở giữa
-$color-bg-gradient-end: #fdfaf5; // Màu trắng ngà ở rìa
+$color-bg-gradient-start: #fef5e9;
+$color-bg-gradient-end: #fdfaf5;
 
 //===== FONTS =====
-$font-family-primary: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+$font-family-meiryo: "Meiryo", sans-serif;
+
+$font-family-gothic: "Century Gothic", "Verdana", sans-serif;
+
+$font-family-hirakaku: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+  sans-serif;
+
+$font-weight-light: 300;
+$font-weight-normal: 500;
+$font-weight-bold: 600;
+
 $font-size-base: 14px;
 $font-size-small: 12px;
 $font-size-large: 28px;
 
 //===== LAYOUT =====
-$layout-container-width: 960px; // <-- Cập nhật ở đây
+$layout-container-width: 960px;

@@ -33,15 +33,20 @@
           <div class="header__contact-info">
             <p class="header__address">滋賀県草津市大路1丁目8-1 南洋軒ビル6F</p>
             <p class="header__phone">077-566-1070</p>
-            <p class="header__hours">営業時間 11:00〜21:00</p>
-            <p class="header__reception">※入店・予約受付 19:30まで</p>
-            <p class="header__holiday">定休日 火曜日</p>
+            <p class="header__hours">営業時間　11:00〜21:00</p>
+            <p class="header__reception">※入店・予約受付　19:30まで</p>
+            <p class="header__holiday">定休日　火曜日</p>
           </div>
         </div>
       </div>
 
       <nav class="header__nav">
         <div class="container">
+          <button class="header__hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <ul class="header__nav-list">
             <li class="header__nav-item">
               <a href="#" class="header__nav-link header__nav-link--active"
@@ -51,8 +56,38 @@
             <li class="header__nav-item">
               <a href="#" class="header__nav-link">店舗紹介</a>
             </li>
-            <li class="header__nav-item">
+            <li class="header__nav-item has-submenu">
               <a href="#" class="header__nav-link">エステ</a>
+              <div class="header__nav-submenu">
+                <div class="header__nav-submenu-groups">
+                  <ul class="header__nav-submenu-group">
+                    <li
+                      class="header__nav-submenu-item header__nav-submenu-item--highlight"
+                    >
+                      <a href="#">フェイシャル</a>
+                    </li>
+                    <li class="header__nav-submenu-item">
+                      <a href="#">ダイエット</a>
+                    </li>
+                    <li class="header__nav-submenu-item">
+                      <a href="#">脱毛</a>
+                    </li>
+                    <li class="header__nav-submenu-item">
+                      <a href="#">美肌再生プログラム</a>
+                    </li>
+                  </ul>
+                  <ul class="header__nav-submenu-group">
+                    <li
+                      class="header__nav-submenu-item header__nav-submenu-item--highlight"
+                    >
+                      <a href="#">発毛</a>
+                    </li>
+                    <li class="header__nav-submenu-item">
+                      <a href="#">症例</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li class="header__nav-item">
               <a href="#" class="header__nav-link">ヘアクリニック</a>
@@ -87,17 +122,13 @@
                 class="main-visual__image"
               />
             </div>
-            <h2 class="main-visual__title">
-              皆様の美 (ビューティー) をサポート
-            </h2>
           </div>
         </div>
       </div>
       <div class="page-content">
         <div class="container">
-          <!-- ========== CỘT CHÍNH (BÊN TRÁI) ========== -->
           <div class="page-content__main">
-            <!-- Block: Concept -->
+            <!-- Concept -->
             <section class="concept">
               <h2 class="section-title">コンセプト</h2>
               <div class="concept__content">
@@ -128,7 +159,7 @@
               </div>
             </section>
 
-            <!-- Block: Menu -->
+            <!-- Menu -->
             <section class="menu">
               <h2 class="section-title">メニュー</h2>
               <div class="menu__cards">
@@ -185,7 +216,7 @@
               </div>
             </section>
 
-            <!-- Block: News -->
+            <!-- News -->
             <section class="news">
               <div class="news__header">
                 <h2 class="section-title section-title--no-underline">
@@ -206,9 +237,8 @@
             </section>
           </div>
 
-          <!-- ========== SIDEBAR (BÊN PHẢI) ========== -->
           <aside class="page-content__sidebar">
-            <!-- Widget: Promo -->
+            <!-- Promo -->
             <a href="#" class="promo-widget">
               <img
                 src="images/af9920077885l.jpg"
@@ -226,7 +256,7 @@
               </div>
             </a>
 
-            <!-- Widget: Side Menu -->
+            <!-- Side Menu -->
             <nav class="side-menu">
               <h3 class="side-menu__title">取り扱いメニュー</h3>
               <ul class="side-menu__list">
@@ -246,7 +276,7 @@
               </ul>
             </nav>
 
-            <!-- Widget: Banners -->
+            <!-- Banners -->
             <a href="#" class="sidebar-banner"
               ><img src="images/banner_campaign.png" alt="Campaign Banner"
             /></a>
@@ -254,12 +284,13 @@
               ><img src="images/banner_recruit.png" alt="Recruitment Banner"
             /></a>
 
-            <!-- Widget: Info Box -->
+            <!-- Info Box -->
             <div class="info-box">
               <h3 class="info-box__title">Feminine (フェミニン)</h3>
               <div class="info-box__content">
                 <p class="info-box__address">
-                  滋賀県草津市大路1丁目8-1 南洋軒ビル6F
+                  滋賀県草津市大路1丁目8-1 <br />
+                  南洋軒ビル6F
                 </p>
                 <p class="info-box__phone">077-566-1070</p>
                 <p>営業時間：11:00〜21:00 (予約制)</p>
@@ -281,11 +312,9 @@
       </div>
     </main>
 
-    <!-- Các phần tiếp theo của trang web -->
     <footer class="footer">
       <div class="footer__main">
         <div class="container">
-          <!-- Cột 1: Thông tin liên hệ -->
           <div class="footer__contact">
             <a href="#" class="footer__logo"
               ><img src="images/logo_feminine.gif" alt="Feminine"
@@ -303,7 +332,7 @@
             </div>
           </div>
 
-          <!-- Cột 2: Sitemap -->
+          <!-- Sitemap -->
           <nav class="footer__sitemap">
             <ul class="footer__link-list footer__link-list--columns">
               <li><a href="#">HOME</a></li>
@@ -317,17 +346,26 @@
             </ul>
           </nav>
 
-          <!-- Cột 3: Dịch vụ -->
           <div class="footer__services">
             <h3 class="footer__services-title">取り扱いメニュー</h3>
             <ul class="footer__link-list">
-              <li><a href="#">フェイシャル</a></li>
-              <li><a href="#">ダイエット</a></li>
-              <li><a href="#">脱毛</a></li>
-              <li><a href="#">美肌再生プログラム</a></li>
-              <li><a href="#">アクティについて</a></li>
-              <li><a href="#">発毛</a></li>
-              <li><a href="#">症例</a></li>
+              <li>
+                <a href="#" class="footer__link-list--item">フェイシャル</a>
+              </li>
+              <li>
+                <a href="#" class="footer__link-list--item">ダイエット</a>
+              </li>
+              <li><a href="#" class="footer__link-list--item">脱毛</a></li>
+              <li>
+                <a href="#" class="footer__link-list--item"
+                  >美肌再生プログラム</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer__link-list--item">アクティについて</a>
+              </li>
+              <li><a href="#" class="footer__link-list--item">発毛</a></li>
+              <li><a href="#" class="footer__link-list--item">症例</a></li>
             </ul>
           </div>
         </div>
@@ -336,5 +374,6 @@
         <p>Copyright Feminine (フェミニン) All Rights Reserved.</p>
       </div>
     </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>
